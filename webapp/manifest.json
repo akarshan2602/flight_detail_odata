@@ -1,0 +1,170 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "app.flightdetail",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.3",
+      "toolsId": "edfcdfd1-7c74-4207-9406-8bda0bc13665"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZACK_SPRINT_FLIGHT_FINAL_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "flightdetails-create": {
+          "semanticObject": "flightdetails",
+          "action": "create",
+          "title": "{{flightdetails-create.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.134.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "FlightModel": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "app.flightdetail.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "app.flightdetail.view",
+        "async": true,
+        "viewPath": "app.flightdetail.view"
+      },
+      "routes": [
+        {
+          "name": "RouteMasterView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMasterView"
+          ]
+        },
+        {
+          
+          "name": "RouteBookingView",
+          "pattern": "booking",
+          "target": [
+            "TargetBookingView"
+          ]
+        },
+        {
+          
+          "name": "RouteFindView",
+          "pattern": "search",
+          "target": [
+            "TargetSearchView"
+          ]
+        },
+        {
+          
+          "name": "RouteCreateView",
+          "pattern": "create",
+          "target": [
+            "TargetCreateView"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetMasterView": {
+          "id": "MasterView",
+          "name": "MasterView"
+        },
+        "TargetSearchView": {
+          "id": "FindView",
+          "name": "FindView"
+        },
+        "TargetBookingView":{
+          "id": "BookingView",
+          "name": "BookingView"
+        },
+        "TargetCreateView":{
+          "id": "CreateView",
+          "name": "CreateView"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "app.flightdetail.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "appflightdetail"
+  }
+}

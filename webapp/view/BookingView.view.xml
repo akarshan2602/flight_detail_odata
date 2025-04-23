@@ -1,0 +1,54 @@
+<mvc:View
+    controllerName="app.flightdetail.controller.BookingView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="idBookingView" title="Flight Bookings">
+        <Table
+            id="bookingTable"
+            items="{FlightModel>/}">
+            <columns>
+                <Column>
+                    <Text text="Airline"/>
+                </Column>
+                <Column>
+                    <Text text="Flight No"/>
+                </Column>
+                <Column>
+                    <Text text="Passenger"/>
+                </Column>
+                <Column>
+                    <Text text="Seat No"/>
+                </Column>
+                <Column>
+                    <Text text="Actions"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{FlightModel>Carrid}"/>
+                        <Text text="{FlightModel>Connid}"/>
+                        <Text text="{FlightModel>Passname}"/>
+                        <Text text="{FlightModel>SeatNum}"/>
+                        <HBox>
+                            <Button 
+                                icon="sap-icon://edit" 
+                                press="onEdit"/>
+                            <Button 
+                                icon="sap-icon://delete" 
+                                press="onDelete"/>
+                        </HBox>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <footer>
+            <!-- <OverflowToolbar>
+                <Button 
+                    text="Create Booking" 
+                    type="Emphasized" 
+                    press="onCreateBooking"/>           USE THIS IN FLIGHT BUTTON
+            </OverflowToolbar> -->
+        </footer>
+    </Page>
+</mvc:View>

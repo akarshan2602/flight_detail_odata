@@ -1,0 +1,14 @@
+/* Enter your custom styles here */
+
+    .centerContent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    #findFlightsButton, #previousBookingsButton {
+        margin: 10px;
+    }
+
+    
+

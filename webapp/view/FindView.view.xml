@@ -1,0 +1,23 @@
+<!-- <mvc:View controllerName="app.flightdetail.controller.FindView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="idFindView" title="Find Flights" showNavButton="true" navButtonPress="onNavBack">
+         <content>
+            
+         </content>
+    </Page>
+</mvc:View>
+
+
+<!-- <mvc:View
+    controllerName="com.flightbooking.controller.CreateBooking"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page title="Create Booking" showNavButton="true" navButtonPress="onNavBack">
+      
+    </Page>
+</mvc:View> --> -->

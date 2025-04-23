@@ -1,0 +1,34 @@
+<mvc:View controllerName="app.flightdetail.controller.CreateView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="idCreateView" title="Create Booking">
+        <content>
+            <VBox>
+                <Label text="From City" />
+                <Select id="fromCity" items="{path: '/Cities'}">
+                    <core:Item key="{CityCode}" text="{CityName}" />
+                </Select>
+
+                <Label text="To City" />
+                <Select id="toCity" items="{path: '/Cities'}">
+                    <core:Item key="{CityCode}" text="{CityName}" />
+                </Select>
+
+                <Label text="Flight" />
+                <Input id="flightInput" placeholder="Enter Flight Number (e.g., AA-001)" />
+
+                <Label text="Flight Date" />
+                <Input id="flightDate" placeholder="Select flight date" />
+
+                <Label text="Passenger Name" />
+                <Input id="passengerName" placeholder="Enter passenger name" />
+
+                <Label text="Seat Number" />
+                <Text id="selectedSeat" text="Auto-assigned" />
+
+                <Button text="Submit Booking" press="onSubmitBooking" />
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

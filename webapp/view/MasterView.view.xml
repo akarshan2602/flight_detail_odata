@@ -1,0 +1,12 @@
+<mvc:View controllerName="app.flightdetail.controller.MasterView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox class="centerContent">
+                <Button id="findFlightsButton" text="Find Flights" press="onFindFlightsPress"/>
+                <Button id="previousBookingsButton" text="Previous Bookings" press="onPreviousBookingsPress"/>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
