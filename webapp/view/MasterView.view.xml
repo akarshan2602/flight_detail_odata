@@ -1,4 +1,4 @@
-<mvc:View controllerName="app.flightdetail.controller.MasterView"
+<!-- <mvc:View controllerName="app.flightdetail.controller.MasterView"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
@@ -9,4 +9,18 @@
             </VBox>
         </content>
     </Page>
+</mvc:View> -->
+
+<mvc:View controllerName="app.flightdetail.controller.MasterView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" class="customBackground">
+        <content>
+            <VBox class="centerContent">
+                <Button id="findFlightsButton" text="Book Flights" press="onFindFlightsPress" class="sameWidthButton"/>
+                <Button id="previousBookingsButton" text="Previous Bookings" press="onPreviousBookingsPress" class="sameWidthButton"/>
+            </VBox>
+        </content>
+    </Page>
 </mvc:View>
+

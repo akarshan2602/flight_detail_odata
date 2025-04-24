@@ -3,11 +3,11 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/m/MessageBox"
-], (Controller, Filter, FilterOperator, MessageBox) => {
+], function (Controller, Filter, FilterOperator, MessageBox) {
     "use strict";
 
     return Controller.extend("app.flightdetail.controller.DetailView", {
-        onInit() {
+        onInit: function () {
             let oRouter = this.getRouter();
             oRouter.attachRoutePatternMatched(this.onRouteMatched, this);
         },

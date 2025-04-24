@@ -23,12 +23,28 @@ sap.ui.define([
                     // Additional error handling logic
                 }
             });
+            let oRouter = this.getRouter();
+            oRouter.attachRoutePatternMatched(this.onRouteMatched, this);
 
         },
-        onEdit: function() {
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.navTo("RouteCreateView");
+        onRouteMatched: function (oEvent) {
+            this.index = oEvent.getParameter("arguments").indexDetail;
+            let sPath = "FlightModel>/" + this.index; // binding to the element to the view
+            let oView = this.getView();
+            oView.bindElement(sPath);
         },
+
+        onEdit: function () {
+            let oRouter = this.getRouter();
+            oRouter.navTo("RouteUpdateView", {
+                indexUpdate: this.index
+            });
+        },
+        // onEdit: function() {
+        //     var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        //     oRouter.navTo("RouteUpdateView");
+        // },
+
         
         onFilter: function (oEvent) {
              var sQuery = oEvent.getParameter("value");

@@ -25,7 +25,7 @@
                 <Input id="passengerName" placeholder="Enter passenger name" />
 
                 <Label text="Seat Number" />
-                <Text id="selectedSeat" text="Auto-assigned" />
+                <Text id="selectedSeat" text="" />
 
                 <Button text="Submit Booking" press="onSubmitBooking" />
             </VBox>

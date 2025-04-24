@@ -45,6 +45,8 @@ sap.ui.define([
                 }
             });
         },
+        
+        
         onSubmitBooking: function() {
             let oModel = this.getView().getModel("FlightModel");
             let flightInput = this.byId("flightInput").getValue();

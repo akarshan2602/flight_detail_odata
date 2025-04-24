@@ -64,9 +64,9 @@
                             <Text text="{FlightModel>Passname}"/>
                             <Text text="{FlightModel>SeatNum}"/>
                             <HBox>
-                                <Button 
+                                <!-- <Button 
                                     icon="sap-icon://edit" 
-                                    press="onEdit"/>
+                                    press="onEdit"/> -->
                                 <Button 
                                     icon="sap-icon://delete" 
                                     press="onDelete"/>

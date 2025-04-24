@@ -10,5 +10,13 @@
         margin: 10px;
     }
 
+    .sameWidthButton {
+        width: 200px; /* Set the desired width */
+    }
     
-
+    .customBackground {
+        background-image: url('https://www.digient.in/images/2020/07/07/banners-sub/flightbook.jpg'); /* Add the path to your background image */
+        background-size: cover;
+        background-position: center;
+    }
+        
