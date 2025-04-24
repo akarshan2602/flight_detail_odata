@@ -5,7 +5,7 @@
     <Page id="idBookingView" title="Flight Bookings">
         <Table
             id="bookingTable"
-            items="{FlightModel>/}">
+            items="{FlightModel>/}"  mode="SingleSelectMaster" selectionChange="onRowSelection">
             <columns>
                 <Column>
                     <Text text="Airline"/>

@@ -1,4 +1,4 @@
-<!-- <mvc:View controllerName="app.flightdetail.controller.FindView"
+<mvc:View controllerName="app.flightdetail.controller.FindView"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:l="sap.ui.layout"
     xmlns:f="sap.ui.layout.form"
@@ -20,4 +20,4 @@
     <Page title="Create Booking" showNavButton="true" navButtonPress="onNavBack">
       
     </Page>
-</mvc:View> --> -->
+</mvc:View> -->

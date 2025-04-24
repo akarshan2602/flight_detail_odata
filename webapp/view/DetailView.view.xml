@@ -1,0 +1,49 @@
+<mvc:View controllerName="app.flightdetail.controller.DetailView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="idDetail" title="Detail">
+        <content>
+            <f:SimpleForm id="DetForm" editable="true" layout="ResponsiveGridLayout">
+            
+                <Label text="{i18n>Carrid}"/>
+                <Text id="carridText" text="{FlightModel>Carrid}"/>
+ 
+                <Label text="{i18n>Connid}"/>
+                <Text id="connidText" text="{FlightModel>Connid}"/>
+ 
+                <Label text="{i18n>Fldate}"/>
+                <Text id="fldateText" text="{FlightModel>Fldate}" />
+ 
+                <Label text="{i18n>Bookid}"/>
+                <Text id="bookidText" text="{FlightModel>Bookid}"/>
+ 
+                <Label text="{i18n>OrderDate}"/>
+                <Text id="orderDateText" text="{FlightModel>OrderDate}" />
+
+                <Label text="{i18n>Passname}"/>
+                <Text id="passnameText" text="{FlightModel>Passname}"/>
+ 
+                <Label text="{i18n>ArrAirport}"/>
+                <Text id="arrAirportText" text="{FlightModel>ArrAirport}"/>
+
+                <Label text="{i18n>DeptAirport}"/>
+                <Text id="deptAirportText" text="{FlightModel>DeptAirport}"/>
+
+                <Label text="{i18n>Customid}"/>
+                <Text id="customidText" text="{FlightModel>Customid}"/>
+
+                <Label text="{i18n>SeatNum}"/>
+                <Text id="seatNumText" text="{FlightModel>SeatNum}"/>
+ 
+            </f:SimpleForm>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="{i18n>Edit}" press="onEdit"></Button>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

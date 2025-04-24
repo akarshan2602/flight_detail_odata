@@ -113,6 +113,13 @@
           ]
         },
         {
+          "name": "RouteUpdateView",
+          "pattern": "update",
+          "target": [
+            "TargetUpdate"
+          ]
+        },
+        {
           
           "name": "RouteBookingView",
           "pattern": "booking",
@@ -122,18 +129,24 @@
         },
         {
           
-          "name": "RouteFindView",
-          "pattern": "search",
-          "target": [
-            "TargetSearchView"
-          ]
-        },
-        {
-          
           "name": "RouteCreateView",
           "pattern": "create",
           "target": [
             "TargetCreateView"
+          ]
+        },
+        {
+          "name": "RouteDetailView",
+          "pattern": "detail/{indexDetail}",
+          "target": [
+            "TargetDetailView"
+          ]
+        },
+        {
+          "name": "RouteUpdateView",
+          "pattern": "update/{indexUpdate}",
+          "target": [
+            "TargetUpdateView"
           ]
         }
       ],
@@ -142,17 +155,21 @@
           "id": "MasterView",
           "name": "MasterView"
         },
-        "TargetSearchView": {
-          "id": "FindView",
-          "name": "FindView"
+        "TargetCreateView": {
+          "id": "CreateView",
+          "name": "CreateView"
         },
         "TargetBookingView":{
           "id": "BookingView",
           "name": "BookingView"
         },
-        "TargetCreateView":{
-          "id": "CreateView",
-          "name": "CreateView"
+        "TargetDetailView": {
+          "viewId": "idDetail",
+          "viewName": "DetailView"
+        },
+        "TargetUpdateView": {
+          "viewId": "idUpdate",
+          "viewName": "UpdateView"
         }
       }
     },

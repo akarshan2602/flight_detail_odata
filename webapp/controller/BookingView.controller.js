@@ -59,6 +59,17 @@ sap.ui.define([
                 }
             });
             oModel.onInit();
+        },
+        onRowSelection:function(oEvent){
+            let oItem=oEvent.getParameter("listItem")
+            let oContext=oItem.getBindingContextPath("FlightModel")
+            console.log(oContext)
+            let aItems=oContext.split("/") //array items
+            let index=aItems[aItems.length-1]
+            let oRouter=this.getRouter()
+            oRouter.navTo("RouteDetailView",{
+                indexDetail:index
+            })
         }
     });
 });

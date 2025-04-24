@@ -111,9 +111,10 @@ console.log("Formatted Flight Date:", flightDateFormatted); // Should output '20
                         oSeatsModel.update(updateUri, seatData, {
                             success: () => {
                                 console.log("Seat count updated successfully.");
-/*--------------------------------------------------SEAT IS GETTING UPDAE----------------------------------------------------------------------------------------------------------*/ 
+/*--------------------------------------------------SEAT IS GETTING UPDATED----------------------------------------------------------------------------------------------------------*/ 
                                 // Proceed with booking
-                                currentDate= new Date().toISOString().split('T')[0];
+                                // flightDateFormatted = year + "-" + month + "-" + day;
+                                currentDate= currentDate = new Date().toISOString().split('T')[0]
                                 let payload = {
                                     Carrid: newBooking.Carrid,
                                     Connid: newBooking.Connid,
@@ -121,20 +122,23 @@ console.log("Formatted Flight Date:", flightDateFormatted); // Should output '20
                                     Bookid: newBooking.Bookid,
                                     Customid: newBooking.Customid,
                                     Passname: newBooking.Passname,
-                                    SeatNum: newBooking.SeatNum, // Placeholder for seat number
+                                    SeatNum: newBooking.SeatNum.toString(), // Placeholder for seat number
                                     ArrAirport: newBooking.ArrAirport,
                                     DeptAirport: newBooking.DeptAirport,
                                     OrderDate: currentDate
                                 };
-                                console.log(payload) // payload is correct exactly like how it should be and the dates are in correct format
-                                let existingBookings = oModel.getData();
-                                existingBookings.push(payload);
-                                oModel.setData(existingBookings);
-                                // console.log(odata.getData())
+                                let sortedPayload= this._getPayload(payload.ArrAirport, payload.Bookid, payload.Carrid, payload.Connid, payload.Customid, payload.DeptAirport, payload.Fldate, payload.OrderDate, payload.Passname, payload.SeatNum)
+                                console.log(sortedPayload)
+                                oModel= this.getModel()
+                                // let existingBookings = oModel.getData();
+                                // existingBookings.push(payload);
+                                // oModel.setData(existingBookings);
+                                // console.log(odata.results) //TILL HERE WORKING FINE ✅
                                 // Push new booking to ZACK_SPRINT_TABSet
-                                oModel.create("/ZACK_SPRINT_TABSet", payload, {
+                                oModel.create("/ZACK_SPRINT_TABSet", sortedPayload, {
                                     success: () => {
                                         MessageBox.success("Booking created successfully!");
+                                                
                                     },
                                     error: (error) => {
                                         MessageBox.error("Error creating booking: " + error.message);
@@ -163,7 +167,7 @@ console.log("Formatted Flight Date:", flightDateFormatted); // Should output '20
         
         _generateRandomID: function(length) {
             let result = '';
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            const characters = '0123456789';
             const charactersLength = characters.length;
             for (let i = 0; i < length; i++) {
                 result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -174,7 +178,23 @@ console.log("Formatted Flight Date:", flightDateFormatted); // Should output '20
             // const rows = ['A', 'B', 'C', 'D', 'E', 'F'];
             const row = Math.floor(Math.random() * 3);
             const seatNumber = Math.floor(Math.random() * 30) + 1; // Assuming 30 rows
-            return seatNumber + row;
-        }
+            return (seatNumber + row)
+        },
+        _getPayload: function(arrAirport, bookid, carrid, connid, customid, deptAirport, fldate, orderDate, passname, seatNum){
+    return {
+    Carrid: carrid,
+     Connid: connid,
+     Fldate: fldate, // Use formatted date
+     Bookid: bookid,
+     Customid: customid,
+     Passname: passname,
+     SeatNum: seatNum, // Placeholder for seat number
+     ArrAirport: arrAirport,
+     DeptAirport: deptAirport,
+     OrderDate: orderDate
+    };
+    }
+    
+        
     });
 });
