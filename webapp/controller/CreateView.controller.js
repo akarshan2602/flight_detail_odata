@@ -50,7 +50,7 @@ sap.ui.define([
             let flightInput = this.byId("flightInput").getValue();
             let [Carrid, Connid] = flightInput.split("-");
             
-let flightDate = this.byId("flightDate").getValue(); // Assuming flightDate is in 'DD-MM-YYYY' format
+let flightDate = this.byId("flightDate").getValue(); // Assuming flightDate is in 'DD-MM-YYYY'
 
 // Split the date into parts
 let [day, month, year] = flightDate.split("-");
@@ -113,12 +113,26 @@ console.log("Formatted Flight Date:", flightDateFormatted); // Should output '20
                                 console.log("Seat count updated successfully.");
 /*--------------------------------------------------SEAT IS GETTING UPDAE----------------------------------------------------------------------------------------------------------*/ 
                                 // Proceed with booking
+                                currentDate= new Date().toISOString().split('T')[0];
+                                let payload = {
+                                    Carrid: newBooking.Carrid,
+                                    Connid: newBooking.Connid,
+                                    Fldate: seatData.Fldate, // Use formatted date
+                                    Bookid: newBooking.Bookid,
+                                    Customid: newBooking.Customid,
+                                    Passname: newBooking.Passname,
+                                    SeatNum: newBooking.SeatNum, // Placeholder for seat number
+                                    ArrAirport: newBooking.ArrAirport,
+                                    DeptAirport: newBooking.DeptAirport,
+                                    OrderDate: currentDate
+                                };
+                                console.log(payload) // payload is correct exactly like how it should be and the dates are in correct format
                                 let existingBookings = oModel.getData();
-                                existingBookings.push(newBooking);
+                                existingBookings.push(payload);
                                 oModel.setData(existingBookings);
-        
+                                // console.log(odata.getData())
                                 // Push new booking to ZACK_SPRINT_TABSet
-                                oModel.create("/ZACK_SPRINT_TABSet", newBooking, {
+                                oModel.create("/ZACK_SPRINT_TABSet", payload, {
                                     success: () => {
                                         MessageBox.success("Booking created successfully!");
                                     },
