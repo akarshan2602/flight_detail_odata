@@ -2,42 +2,84 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
-    xmlns:f="sap.ui.layout.form">
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout">
     <Page id="idUpdate" title="{i18n>titleUpdate}">
-        <content/>
-        <f:SimpleForm editable="true">
-            <Label text="Carrid"></Label>
-            <Input value="{FlightModel>Carrid}" editable="false" id="CarridInput"></Input>
-            
-            <Label text="Connid"></Label>
-            <Input value="{FlightModel>Connid}" editable="false" id="ConnidInput"></Input>
-            
-            <Label text="Fldate"></Label>
-            <Input value="{FlightModel>Fldate}" editable="false" id="FldateInput"></Input>
-            
-            <Label text="Bookid" required="true"></Label>
-            <Input value="{FlightModel>Bookid}" editable="false" id="BookidInput"></Input>
-            
-            <Label text="OrderDate"></Label>
-            <Input value="{FlightModel>OrderDate}" id="OrderDateInput"></Input>
-            
-            <Label text="Passname"></Label>
-            <Input value="{FlightModel>Passname}" id="PassnameInput"></Input>
-            
-            <Label text="ArrAirport"></Label>
-            <Input value="{FlightModel>ArrAirport}" id="ArrAirportInput"></Input>
-            
-            <Label text="DeptAirport"></Label>
-            <Input value="{FlightModel>DeptAirport}" id="DeptAirportInput"></Input>
-            
-            <Label text="Customid"></Label>
-            <Input value="{FlightModel>Customid}" id="CustomidInput"></Input>
-            
-            <Label text="SeatNum"></Label>
-            <Input value="{FlightModel>SeatNum}" id="SeatNumInput"></Input>
-            
-            <Button text="{i18n>Update}" press="onUpdate" width="80px"></Button>
-        </f:SimpleForm>
+        <content>
+            <f:SimpleForm editable="true">
+                <Label text="Carrid"></Label>
+                <Input value="{FlightModel>Carrid}" editable="false" id="CarridInput">
+                    <layoutData>
+                        <l:GridData span="L4 M6 S12"/>
+                    </layoutData>
+                </Input>
+                
+                <Label text="Connid"></Label>
+                <Input value="{FlightModel>Connid}" editable="false" id="ConnidInput">
+                    <layoutData>
+                        <l:GridData span="L4 M6 S12"/>
+                    </layoutData>
+                </Input>
+                
+                <Label text="Fldate"></Label>
+                <Input value="{FlightModel>Fldate}" editable="false" id="FldateInput">
+                    <layoutData>
+                        <l:GridData span="L4 M6 S12"/>
+                    </layoutData>
+                </Input>
+                
+                <Label text="Bookid" required="true"></Label>
+                <Input value="{FlightModel>Bookid}" editable="false" id="BookidInput">
+                    <layoutData>
+                        <l:GridData span="L4 M6 S12"/>
+                    </layoutData>
+                </Input>
+                
+                <Label text="OrderDate"></Label>
+                <Input value="{FlightModel>OrderDate}" id="OrderDateInput">
+                    <layoutData>
+                        <l:GridData span="L4 M6 S12"/>
+                    </layoutData>
+                </Input>
+                
+                <Label text="Passname"></Label>
+                <Input value="{FlightModel>Passname}" id="PassnameInput">
+                    <layoutData>
+                        <l:GridData span="L4 M6 S12"/>
+                    </layoutData>
+                </Input>
+                
+                <Label text="ArrAirport"></Label>
+                <Input value="{FlightModel>ArrAirport}" id="ArrAirportInput">
+                    <layoutData>
+                        <l:GridData span="L4 M6 S12"/>
+                    </layoutData>
+                </Input>
+                
+                <Label text="DeptAirport"></Label>
+                <Input value="{FlightModel>DeptAirport}" id="DeptAirportInput">
+                    <layoutData>
+                        <l:GridData span="L4 M6 S12"/>
+                    </layoutData>
+                </Input>
+                
+                <Label text="Customid"></Label>
+                <Input value="{FlightModel>Customid}" id="CustomidInput">
+                    <layoutData>
+                        <l:GridData span="L4 M6 S12"/>
+                    </layoutData>
+                </Input>
+                
+                <Label text="SeatNum"></Label>
+                <Input value="{FlightModel>SeatNum}" id="SeatNumInput">
+                    <layoutData>
+                        <l:GridData span="L4 M6 S12"/>
+                    </layoutData>
+                </Input>
+                
+                <Button text="{i18n>Update}" press="onUpdate" width="80px"></Button>
+            </f:SimpleForm>
+        </content>
         <footer>
             <OverflowToolbar>
                 <ToolbarSpacer/>

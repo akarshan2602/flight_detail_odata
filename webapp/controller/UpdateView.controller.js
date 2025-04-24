@@ -14,6 +14,7 @@ sap.ui.define([
             let sPath = "FlightModel>/" + index;
             let oView = this.getView();
             oView.bindElement(sPath);
+            this.indexDetail = index; // Store the index for later use
         },
 
         onUpdate: function () {
@@ -53,32 +54,20 @@ sap.ui.define([
                 DeptAirport: sDeptAirport,
                 Customid: sCustomid,
                 SeatNum: sSeatNum.toString()
-
             };
-            console.log(payload)
-            // let payload = {
-            //     Carrid: newBooking.Carrid,
-            //     Connid: newBooking.Connid,
-            //     Fldate: seatData.Fldate, // Use formatted date
-            //     Bookid: newBooking.Bookid,
-            //     Customid: newBooking.Customid,
-            //     Passname: newBooking.Passname,
-            //     SeatNum: newBooking.SeatNum.toString(), // Placeholder for seat number
-            //     ArrAirport: newBooking.ArrAirport,
-            //     DeptAirport: newBooking.DeptAirport,
-            //     OrderDate: currentDate
-            // };
-            let oModel = this.getModel()
 
+            let oModel = this.getModel();
             let entity = `/ZACK_SPRINT_TABSet(Carrid='${sCarrid}',Connid='${sConnid}',Fldate='${sFldate.replace(/-/g, "")}',Bookid='${sBookid}')`;
             let that = this;
             oModel.update(entity, payload, {
                 success: function (resp) {
                     MessageBox.success("Record updated", {
                         onClose: function () {
-                            let oRouter = this.getRouter();
-                            oRouter.navTo("RouteDetailView");
-                        }.bind(that)
+                            let oRouter = that.getRouter();
+                            oRouter.navTo("RouteDetailView", {
+                                indexDetail: that.indexDetail // Pass the stored indexDetail parameter
+                            });
+                        }
                     });
                 },
                 error: function (error) {

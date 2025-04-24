@@ -23,11 +23,28 @@ sap.ui.define([
                     // Additional error handling logic
                 }
             });
+
         },
-        onCreateBooking: function() {
+        onEdit: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("RouteCreateView");
         },
+        
+        onFilter: function (oEvent) {
+             var sQuery = oEvent.getParameter("value");
+            var oFilter = new sap.ui.model.Filter({
+             filters: [
+             new sap.ui.model.Filter("Carrid", sap.ui.model.FilterOperator.Contains, sQuery),
+             new sap.ui.model.Filter("Connid", sap.ui.model.FilterOperator.Contains, sQuery),
+             new sap.ui.model.Filter("Passname", sap.ui.model.FilterOperator.Contains, sQuery),
+             new sap.ui.model.Filter("SeatNum", sap.ui.model.FilterOperator.Contains, sQuery)
+             ],
+             and: false
+             });
+             var oBinding = this.byId("bookingTable").getBinding("items");
+             oBinding.filter(oFilter);
+             },
+            
         onDelete: function(oEvent) {
             console.log("HELLO")
             let oContext = oEvent.getSource().getBindingContext("FlightModel").getObject();

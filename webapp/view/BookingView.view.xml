@@ -1,53 +1,85 @@
 <mvc:View
     controllerName="app.flightdetail.controller.BookingView"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:comp="sap.ui.comp.filterbar">
     <Page id="idBookingView" title="Flight Bookings">
-        <Table
-            id="bookingTable"
-            items="{FlightModel>/}"  mode="SingleSelectMaster" selectionChange="onRowSelection">
-            <columns>
-                <Column>
-                    <Text text="Airline"/>
-                </Column>
-                <Column>
-                    <Text text="Flight No"/>
-                </Column>
-                <Column>
-                    <Text text="Passenger"/>
-                </Column>
-                <Column>
-                    <Text text="Seat No"/>
-                </Column>
-                <Column>
-                    <Text text="Actions"/>
-                </Column>
-            </columns>
-            <items>
-                <ColumnListItem>
-                    <cells>
-                        <Text text="{FlightModel>Carrid}"/>
-                        <Text text="{FlightModel>Connid}"/>
-                        <Text text="{FlightModel>Passname}"/>
-                        <Text text="{FlightModel>SeatNum}"/>
-                        <HBox>
-                            <Button 
-                                icon="sap-icon://edit" 
-                                press="onEdit"/>
-                            <Button 
-                                icon="sap-icon://delete" 
-                                press="onDelete"/>
-                        </HBox>
-                    </cells>
-                </ColumnListItem>
-            </items>
-        </Table>
+        <headerContent>
+            <Button icon="sap-icon://sort" press="onSort"/>
+        </headerContent>
+        <content>
+            <comp:FilterBar>
+                <comp:filterItems>
+                    <comp:FilterItem name="Airline">
+                        <comp:control>
+                            <Input id="idAir" placeholder="Airline" liveChange="onFilter"/>
+                        </comp:control>
+                    </comp:FilterItem>
+                    <comp:FilterItem name="Flight No">
+                        <comp:control>
+                            <Input id="idFlightNo" placeholder="Flight No" liveChange="onFilter"/>
+                        </comp:control>
+                    </comp:FilterItem>
+                    <comp:FilterItem name="Passenger">
+                        <comp:control>
+                            <Input id="idPassenger" placeholder="Passenger" liveChange="onFilter"/>
+                        </comp:control>
+                    </comp:FilterItem>
+                    <comp:FilterItem name="Seat No">
+                        <comp:control>
+                            <Input id="idSeatNo" placeholder="Seat No" liveChange="onFilter"/>
+                        </comp:control>
+                    </comp:FilterItem>
+                </comp:filterItems>
+            </comp:FilterBar>
+
+            <Table
+                id="bookingTable"
+                items="{FlightModel>/}"
+                mode="SingleSelectMaster"
+                selectionChange="onRowSelection">
+                <columns>
+                    <Column>
+                        <Text text="Airline"/>
+                    </Column>
+                    <Column>
+                        <Text text="Flight No"/>
+                    </Column>
+                    <Column>
+                        <Text text="Passenger"/>
+                    </Column>
+                    <Column>
+                        <Text text="Seat No"/>
+                    </Column>
+                    <Column>
+                        <Text text="Actions"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{FlightModel>Carrid}"/>
+                            <Text text="{FlightModel>Connid}"/>
+                            <Text text="{FlightModel>Passname}"/>
+                            <Text text="{FlightModel>SeatNum}"/>
+                            <HBox>
+                                <Button 
+                                    icon="sap-icon://edit" 
+                                    press="onEdit"/>
+                                <Button 
+                                    icon="sap-icon://delete" 
+                                    press="onDelete"/>
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
         <footer>
             <!-- <OverflowToolbar>
-                <Button 
-                    text="Create Booking" 
-                    type="Emphasized" 
-                    press="onCreateBooking"/>           USE THIS IN FLIGHT BUTTON
+                <ToolbarSpacer/>
+                <Button text="Create Booking" type="Emphasized" press="onCreateBooking"/>
             </OverflowToolbar> -->
         </footer>
     </Page>
